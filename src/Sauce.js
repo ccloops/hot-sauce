@@ -21,23 +21,6 @@ const InnerWrapper = styled.div`
   }
 `
 
-const Outer = styled.div`
-  width: 200px;
-  height: 200px;
-  background: red;
-  position: absolute;
-`
-
-const Inner = styled.img`
-  height: 200px;
-  width: 200px;
-  background: blue;
-  position: absolute;
-  top: 50 %;
-  left: 50 %;
-  transform: translate(-50 %, -50 %);
-`
-
 const ImgWrapper = styled.img`
   width: 200px;
   height: 200px;
@@ -60,7 +43,6 @@ const TitleWrapper = styled.h1`
 
 const DeleteButton = styled.button`
   position: absolute;
-  z-index: 100;
   top: 0; 
   right: 0;
   font-size: 2em;
@@ -78,7 +60,7 @@ const Sauce = ({ sauce, handleSauceHover, toggleDetails, handleRemove, id }) => 
       onMouseEnter={() => handleSauceHover(id)}
       onClick={() => toggleDetails(id)}
     >
-        <ImgWrapper src={sauce.imageURL} />
+      <ImgWrapper src={sauce.imageURL} />
       <TextWrapper>
         <TitleWrapper>{sauce.title}</TitleWrapper>
         <h2>{sauce.subtitle}</h2>
