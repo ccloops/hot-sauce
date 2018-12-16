@@ -21,11 +21,14 @@ const RightWrapper = styled.div`
   font-size: 1em;
 `
 
-const BackButton = styled.a`
+const BackButton = styled.div`
   color: rgb(162, 23, 23);
-  text-decoration: none;
+  border: none;
   font-family: Arial Black;
-  padding: 2em;
+  padding: 1em;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const HeaderWrapper = styled.h1`
@@ -42,10 +45,10 @@ const ImgWrapper = styled.img`
   align-self: center;
 `
 
-const Detail = ({ selectedSauce }) => (
+const Detail = ({ selectedSauce, toggleDetails }) => (
   <Wrapper>
     <LeftWrapper>
-      <BackButton href='/'>{String.fromCharCode(12296) + ' BACK TO HOT SAUCE LIST'}</BackButton>
+      <BackButton onClick={toggleDetails}>{String.fromCharCode(12296) + ' BACK TO HOT SAUCE LIST'}</BackButton>
       <HeaderWrapper>{selectedSauce.title}</HeaderWrapper>
       <ImgWrapper src={selectedSauce.imageURL} />
     </LeftWrapper>

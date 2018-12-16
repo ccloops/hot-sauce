@@ -19,7 +19,7 @@ const Sauces = ({ sauces, ...props }) => (
       <Sauce 
         key={`sauce-item-${index}`}
         sauce={item}
-        id={index}
+        id={item.id}
         {...props}
         >
         {item.title}

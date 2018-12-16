@@ -11,6 +11,7 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   border: 1px solid gray;
   width: 300px;
+  height: 350px;
   margin-bottom: 2em;
   &:hover {
     cursor: pointer;
@@ -49,13 +50,16 @@ const DeleteButton = styled.button`
   border-color: gray;
   border-left: none;
   border-bottom: none;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
-const Sauce = ({ sauce, handleSauceHover, handleSauceClick, handleRemove, id }) => (
+const Sauce = ({ sauce, handleSauceHover, toggleDetails, handleRemove, id }) => (
   <OuterWrapper>
     <InnerWrapper
       onMouseEnter={() => handleSauceHover(id)}
-      onClick={() => handleSauceClick(id)}
+      onClick={() => toggleDetails(id)}
     >
       <ImgWrapper src={sauce.imageURL} />
       <TextWrapper>

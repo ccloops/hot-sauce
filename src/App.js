@@ -21,7 +21,7 @@ export default class App extends Component {
     }
     this.fetchSauce = this.fetchSauce.bind(this);
     this.handleSauceHover = this.handleSauceHover.bind(this);
-    this.handleSauceClick = this.handleSauceClick.bind(this);
+    this.toggleDetails = this.toggleDetails.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.fetchSauce();
   }
@@ -38,9 +38,15 @@ export default class App extends Component {
     // handle hover for the close button
   }
 
-  handleSauceClick(id) {
+  toggleDetails(id) { 
+    console.log('id',id);
     let selected = this.state.sauces.find(sauce => sauce.id === id);
     this.setState({ selectedSauce: selected });
+
+    if(id === undefined) {
+      console.log('undefined');
+      this.setState({ selectedSauce: null });
+    }
   }
 
   handleRemove(id) {
@@ -51,11 +57,12 @@ export default class App extends Component {
 
   render() {
     let { sauces, selectedSauce } = this.state;
-    let { handleSauceHover, handleSauceClick, handleRemove } = this;
+    let { handleSauceHover, toggleDetails, handleRemove } = this;
     if(selectedSauce) {
       return (
         <Detail
           selectedSauce={selectedSauce}
+          toggleDetails={toggleDetails}
         >
         </Detail>
       )
@@ -68,7 +75,7 @@ export default class App extends Component {
           <Sauces
             sauces={sauces}
             handleSauceHover={handleSauceHover}
-            handleSauceClick={handleSauceClick}
+            toggleDetails={toggleDetails}
             handleRemove={handleRemove}
           />
         </div>
