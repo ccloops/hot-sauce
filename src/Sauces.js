@@ -9,7 +9,7 @@ const Container = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 1;
-  justify-content: space-between;
+  justify-content: space-around;
 `
 
 const Sauces = ({ sauces, ...props }) => (

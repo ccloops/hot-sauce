@@ -6,9 +6,10 @@ import Sauces from './Sauces';
 import Detail from './Detail';
 
 const Header = styled.h1`
-  color: red;
+  color: rgb(162, 23, 23);
   font-family: Arial Black;
-  font-size: 4em;
+  font-size: 2em;
+  padding: 1em;
 `
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
     this.fetchSauce = this.fetchSauce.bind(this);
     this.handleSauceHover = this.handleSauceHover.bind(this);
     this.handleSauceClick = this.handleSauceClick.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
     this.fetchSauce();
   }
 
@@ -41,10 +43,15 @@ export default class App extends Component {
     this.setState({ selectedSauce: selected });
   }
 
+  handleRemove(id) {
+    let updatedSauces = this.state.sauces.filter(sauce => id !== sauce.id);
+    this.setState({ sauces: updatedSauces });
+  }
+
 
   render() {
     let { sauces, selectedSauce } = this.state;
-    let { handleSauceHover, handleSauceClick } = this;
+    let { handleSauceHover, handleSauceClick, handleRemove } = this;
     if(selectedSauce) {
       return (
         <Detail
@@ -62,6 +69,7 @@ export default class App extends Component {
             sauces={sauces}
             handleSauceHover={handleSauceHover}
             handleSauceClick={handleSauceClick}
+            handleRemove={handleRemove}
           />
         </div>
       )
