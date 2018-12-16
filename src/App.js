@@ -36,6 +36,12 @@ export default class App extends Component {
 
   handleSauceHover(id) {
     // handle hover for the close button
+
+    // do the same thign you did for on click, have a hovered id
+
+    // onMouseEnter
+    // onMouseOut(or Leave?)
+    // on the grid component inside the map set a prop isShowingDeleteButton= { mappedItem.id === this.hoveredItemId }
   }
 
   toggleDetails(id) { 
