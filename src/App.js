@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Sauces from './Sauces';
 import Detail from './Detail';
 
+const DATA_URL = process.env.DATA_URL;
+
 const Header = styled.h1`
   color: rgb(162, 23, 23);
   font-family: Arial Black;
@@ -19,31 +21,24 @@ export default class App extends Component {
       selectedSauce: null
     }
     this.fetchSauce = this.fetchSauce.bind(this);
-    this.handleSauceHover = this.handleSauceHover.bind(this);
     this.toggleDetails = this.toggleDetails.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
-    this.fetchSauce();
+    this.fetchSauce();  
   }
 
   fetchSauce() {
-    superagent.get('http://localhost:3000/sauces')
+    superagent.get(DATA_URL)
       .then(sauces => {
         this.setState({ sauces: JSON.parse(sauces.text) });
     })
       .catch(error => console.log('error', error));
   }
 
-  handleSauceHover(id) {
-    // on the grid component inside the map set a prop isShowingDeleteButton= { mappedItem.id === this.hoveredItemId }
-  }
-
   toggleDetails(id) { 
-    console.log('id',id);
     let selected = this.state.sauces.find(sauce => sauce.id === id);
     this.setState({ selectedSauce: selected });
 
     if(id === undefined) {
-      console.log('undefined');
       this.setState({ selectedSauce: null });
     }
   }
@@ -56,7 +51,7 @@ export default class App extends Component {
 
   render() {
     let { sauces, selectedSauce } = this.state;
-    let { handleSauceHover, toggleDetails, handleRemove } = this;
+    let { toggleDetails, handleRemove } = this;
     if(selectedSauce) {
       return (
         <Detail
@@ -73,7 +68,6 @@ export default class App extends Component {
           <Header>HOT SAUCE LIST</Header>
           <Sauces
             sauces={sauces}
-            handleSauceHover={handleSauceHover}
             toggleDetails={toggleDetails}
             handleRemove={handleRemove}
           />

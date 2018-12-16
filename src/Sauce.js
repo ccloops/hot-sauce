@@ -4,6 +4,17 @@ import PropTypes from 'prop-types';
 
 const OuterWrapper = styled.li`
   position: relative;
+  button {
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+  }
+  &:hover {
+    button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 `
 
 const InnerWrapper = styled.div`
@@ -54,10 +65,9 @@ const DeleteButton = styled.button`
   }
 `
 
-const Sauce = ({ sauce, handleSauceHover, toggleDetails, handleRemove, id }) => (
+const Sauce = ({ sauce, toggleDetails, handleRemove, id }) => (
   <OuterWrapper>
     <InnerWrapper
-      onMouseEnter={() => handleSauceHover(id)}
       onClick={() => toggleDetails(id)}
     >
       <ImgWrapper src={sauce.imageURL} />

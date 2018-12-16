@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const superagent = require('superagent');
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 

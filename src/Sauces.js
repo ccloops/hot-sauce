@@ -8,8 +8,8 @@ const Container = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-grow: 1;
   justify-content: space-around;
+  align-content: flex-start;
 `
 
 const Sauces = ({ sauces, ...props }) => (
