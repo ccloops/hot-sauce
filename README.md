@@ -17,6 +17,7 @@ To run this application, complete the following steps:
 3. Run the command: `npm install`
 4. Touch a `.env` file and add the following variables:
   * PORT=3000
+  * DATA_URL=http://localhost:3000/sauces
 5. Run the command: `npm start`
 6. In your browser, navigate to: http://localhost:3000
 
