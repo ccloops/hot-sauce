@@ -82,6 +82,9 @@ const Sauce = ({ sauce, toggleDetails, handleRemove, id }) => (
 
 Sauce.propTypes = {
   sauce: PropTypes.string.isRequired,
+  toggleDetails: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 }
 
 export default Sauce;

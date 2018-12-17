@@ -21,6 +21,8 @@ To run this application, complete the following steps:
 5. Run the command: `npm start`
 6. In your browser, navigate to: http://localhost:3000
 
+** If you run `npm start` before you have added the `.env` file, make sure to remove the `.cache` directory before you run the `npm start` command again.
+
 ## Built With
 
 * React - Client Framework
